@@ -1,0 +1,11 @@
+# ignored system files
+.DS_Store
+.idea
+
+# ignored nvim files
+/nvim/plugin/**
+/nvim/*lock.json
+
+*.log
+
+.venv

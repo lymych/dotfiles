@@ -1,0 +1,173 @@
+live_config_reload = true
+
+[cursor]
+style = "Block"
+unfocused_hollow = true
+
+# [env]
+# TERM = "xterm-256color" # "alacritty-direct"
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ",│`|:\"' ()[]{}<>"
+
+[shell]
+args = ["-l", "-c", "tmux a -t base || tmux new -s base"]
+program = "/bin/zsh"
+
+[window]
+decorations = "full"
+dynamic_title = true
+decorations_theme_variant = "Dark"
+opacity = 1
+option_as_alt = "OnlyLeft"
+
+[window.padding]
+x = 3
+y = 0
+
+[font]
+size = 14.5
+
+[font.bold]
+family = "MesloLGS Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "MesloLGS Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "MesloLGS Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "MesloLGS Nerd Font"
+style = "Regular"
+
+[[keyboard.bindings]]
+chars = "\u0001p"
+key = "LBracket"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0001n"
+key = "RBracket"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0001x"
+key = "W"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0001c"
+key = "T"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00011"
+key = "Key1"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00012"
+key = "Key2"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00013"
+key = "Key3"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00014"
+key = "Key4"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00015"
+key = "Key5"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00016"
+key = "Key6"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00017"
+key = "Key7"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00018"
+key = "Key8"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00019"
+key = "Key9"
+mods = "Command"
+
+# TokyoNight Alacritty Colors
+# Default colors
+[colors.primary]
+background = '#222436'
+foreground = '#c8d3f5'
+
+# Normal colors
+[colors.normal]
+black = '#1b1d2b'
+red = '#ff757f'
+green = '#c3e88d'
+yellow = '#ffc777'
+blue = '#82aaff'
+magenta = '#c099ff'
+cyan = '#86e1fc'
+white = '#828bb8'
+
+# Bright colors
+[colors.bright]
+black = '#444a73'
+red = '#ff757f'
+green = '#c3e88d'
+yellow = '#ffc777'
+blue = '#82aaff'
+magenta = '#c099ff'
+cyan = '#86e1fc'
+white = '#c8d3f5'
+
+# Indexed Colors
+[[colors.indexed_colors]]
+index = 16
+color = '#ff966c'
+
+[[colors.indexed_colors]]
+index = 17
+color = '#c53b53'
+
+# gruvbox_material_hard_dark
+# [colors.primary]
+# background = "0x1d2021"
+# foreground = "0xd4be98"
+#
+# [colors.normal]
+# black = "0x32302f"
+# red = "0xea6962"
+# green = "0xa9b665"
+# yellow = "0xd8a657"
+# blue = "0x7daea3"
+# magenta = "0xd3869b"
+# cyan = "0x89b482"
+# white = "0xd4be98"
+#
+# [colors.bright]
+# black = "0x32302f"
+# red = "0xea6962"
+# green = "0xa9b665"
+# yellow = "0xd8a657"
+# blue = "0x7daea3"
+# magenta = "0xd3869b"
+# cyan = "0x89b482"
+# white = "0xd4be98"

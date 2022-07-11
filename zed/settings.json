@@ -1,0 +1,71 @@
+{
+  "ui_font_size": 15,
+  "theme": "JetBrains New Dark",
+  "vim_mode": true,
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "buffer_font_size": 14,
+  "tabs": {
+    "git_status": true,
+    "close_position": "right"
+  },
+  "terminal": {
+    "font_family": "MesloLGS Nerd Font",
+    "font_size": 13,
+    "blinking": "off",
+    "copy_on_select": true,
+    "working_directory": "current_project_directory",
+    "dock": "bottom"
+  },
+  "project_panel": {
+    "dock": "left",
+    "default_width": 120,
+    "indent_size": 8
+  },
+  "languages": {
+    "Terraform": {
+      "formatter": {
+        "external": {
+          "command": "terraform",
+          "arguments": ["fmt", "-"]
+        }
+      }
+    },
+    "HCL": {
+      "tab_size": 2,
+      "formatter": {
+        "external": {
+          "command": "sh",
+          "arguments": [
+            "-c",
+            "TMPFILE=$(mktemp) && cat - > $TMPFILE && terragrunt hclfmt --terragrunt-hclfmt-file $TMPFILE && cat $TMPFILE && rm $TMPFILE"
+          ]
+        }
+      }
+    }
+  },
+  // coding format
+  "format_on_save": "on",
+  "preferred_line_length": 120,
+  "ensure_final_newline_on_save": true,
+  "remove_trailing_whitespace_on_save": true,
+  // "formatter": "language_server",
+  // copilot
+  "show_copilot_suggestions": true,
+  // unused zed features
+  "chat_panel": {
+    "button": false
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "notification_panel": {
+    "button": false
+  },
+  "assistant": {
+    "version": "2",
+    "button": false
+  }
+}

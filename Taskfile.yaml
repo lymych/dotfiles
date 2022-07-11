@@ -1,0 +1,25 @@
+version: "3"
+
+tasks:
+  venv:
+    status:
+      - test -d .venv
+    cmds:
+      - python3 -m venv .venv
+  configure:
+    status:
+      - test -f .venv/bin/pyinfra
+    cmds:
+      - .venv/bin/pip install -r requirements.txt
+    deps:
+      - venv
+  install:
+    cmds:
+      - .venv/bin/pyinfra @local setup.py -v
+    deps:
+      - configure
+  update:
+    cmds:
+      - .venv/bin/pyinfra @local update.py -v
+    deps:
+      - venv
