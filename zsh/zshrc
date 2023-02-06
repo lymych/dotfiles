@@ -30,6 +30,7 @@ for i in $files; do source $i; done
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 source <(kubectl completion zsh)
+source <(helm completion zsh)
 
 ### Custom Alias
 alias zs='source ~/.zshrc'
@@ -40,7 +41,7 @@ alias hsi='history | grep -i'
 alias k=kubectl
 alias sre='cd ${HOME}/sre/'
 alias infra='cd $HOME/sre/github/ua-avalaunch-terragrunt/live-infrastructure/payments'
-alias gpom='git pull origin master'
+alias gpom='git pull origin main'
 alias hclfmt='terragrunt hclfmt'
 alias rdig='dig @10.191.50.50 +short'
 alias b039='ssh ec2-user@bastion.payments.rbua'
@@ -74,9 +75,9 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export AWS_CA_BUNDLE=/opt/homebrew/etc/ca-certificates/cert.pem
 export TERRAGRUNT_DOWNLOAD="$HOME/Documents/sre/tmp/.terragrunt_cache"
 export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
-# export TF_CLI_ARGS_apply=--parallelism=50
-# export TF_CLI_ARGS_plan=--parallelism=50
-# export TF_CLI_ARGS_destroy=--parallelism=50
+export TF_CLI_ARGS_apply=--parallelism=50
+export TF_CLI_ARGS_plan=--parallelism=50
+export TF_CLI_ARGS_destroy=--parallelism=50
 
 export VISUAL=nvim
 export EDITOR=nvim
@@ -106,6 +107,8 @@ hproxy_unset () {
 }
 
 ### Other utilities
+export FZF_DEFAULT_OPTS='--color=fg:-1,bg:-1,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#22212c,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#9580FF --color=marker:#9580FF,spinner:#ffb86c,header:#6272a4'
+export FZF_COMPLETION_TRIGGER='~~'
 
 ### Modules settings
 
