@@ -29,6 +29,11 @@ git submodule update --remote
 ## Tips
 
 ### Tmux
+```zsh
+mkdir ~/.tmux
+ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
+ln -sf ~/dotfiles/tmux/plugins ~/.tmux/plugins
+```
 
 #### TPM
 - `prefix + I` – (capital i, as in Install) to fetch the plugin
@@ -40,3 +45,19 @@ git submodule update --remote
 - `prefix + Ctrl-r` – restore
 
 ### Alacritty
+```zsh
+mkdir -p ~/.config/alacritty
+ln -sf ~/dotfiles/terminal/alacritty.yml ~/.config/alacritty/alacritty.yml
+```
+
+*MacOS thin_strokes*
+```zsh
+defaults write org.alacritty AppleFontSmoothing -int 0
+defaults find AppleFontSmoothing
+default delete
+```
+
+### Fonts
+```zsh
+cp ~/dotfiles/fonts/*.ttf "$HOME/Library/Fonts"
+```
