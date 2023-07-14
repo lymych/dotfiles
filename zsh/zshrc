@@ -5,115 +5,17 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-### ZSH HOME
-export ZSH_CONFIG_PATH=$HOME/configs/zsh
-
-### Init ZSH
-
-# Turn off all beeps
-unsetopt BEEP
-# Turn off autocomplete beeps
-# unsetopt LIST_BEEP
-
-autoload -Uz compinit
-compinit
-
-files=(
-       "$ZSH_CONFIG_PATH/theme/powerlevel10k/powerlevel10k.zsh-theme"
-       "$ZSH_CONFIG_PATH/modules/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
-       "$ZSH_CONFIG_PATH/modules/zsh-autosuggestions/zsh-autosuggestions.zsh"
-      )
-for i in $ZSH_CONFIG_PATH/cfg/*.zsh; do files+=("$i"); done
-for i in $files; do source $i; done
-
-### Complete
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform
-source <(kubectl completion zsh)
-source <(helm completion zsh)
-
-### Custom Alias
-alias zs='source ~/.zshrc'
-alias ze='nvim ~/.zshrc'
-alias h='history'
-alias hs='history | grep'
-alias hsi='history | grep -i'
-alias k=kubectl
-alias sre='cd ${HOME}/sre/'
-alias infra='cd $HOME/sre/github/ua-avalaunch-terragrunt/live-infrastructure/payments'
-alias gpom='git pull origin main'
-alias hclfmt='terragrunt hclfmt'
-alias rdig='dig @10.191.50.50 +short'
-alias b039='ssh ec2-user@bastion.payments.rbua'
-alias kcurl='k run -t -i --rm curl --image harbor.avalaunch.aval/docker-hub-proxy/radial/busyboxplus:curl --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"nodeSelector\": { \"node-purpose\": \"compute\" } } }"'
-alias cb="brew upgrade; brew cleanup; brew doctor"
-
-alias tf='terraform'
-alias tfa='terraform apply'
-alias tfd='terraform destroy'
-alias tff='terraform fmt'
-alias tfi='terraform init'
-alias tfo='terraform output'
-alias tfp='terraform plan'
-alias tfv='terraform validate'
-
-alias tg='terragrunt'
-alias tga='terragrunt apply'
-alias tgd='terragrunt destroy'
-alias tgf='terragrunt hclfmt'
-alias tgi='terragrunt init'
-alias tgo='terragrunt output'
-alias tgp='terragrunt plan'
-alias tgv='terragrunt validate'
-
-# usage: kubectl logs {pod} rnl
-alias -g rntl="| sed 's/\\\n\\\t/\'$'\n\t''/g'" # newline and tab
-alias -g rnl="| sed 's/\\\n/\'$'\n''/g'"        # only new line
-
-### Environment variables
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-export AWS_CA_BUNDLE=/opt/homebrew/etc/ca-certificates/cert.pem
-export TERRAGRUNT_DOWNLOAD="$HOME/Documents/sre/tmp/.terragrunt_cache"
-export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
-export TF_CLI_ARGS_apply=--parallelism=50
-export TF_CLI_ARGS_plan=--parallelism=50
-export TF_CLI_ARGS_destroy=--parallelism=50
-
-export VISUAL=nvim
-export EDITOR=nvim
-
-### Functions
-aws_cfg () {
-  cat ~/Downloads/credentials > ~/.aws/config
-  echo '\nregion=eu-central-1' >> ~/.aws/config
-  echo "AWS Account: $(aws sts get-caller-identity --query Account --no-verify-ssl --output text 2>/dev/null)"
+foreach file (
+  exports.zsh
+  settings.zsh
+  functions.zsh
+  aliases.zsh
+  mappings.zsh
+  plugins.zsh
+) {
+  source $ZSH_CONFIG_PATH/config/$file
 }
-ssm () {
-  aws ssm start-session --target $1
-}
-
-hproxy_set () {
-  export HTTP_PROXY_PASSWORD=$(security find-generic-password -ga "$USER" -s 'PROXY_PASSWORD' -w)
-  export NO_PROXY="localhost,svc,aval,127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,rbinternational.corp,rbi.tech"
-  export HTTP_PROXY="http://${USER}:${HTTP_PROXY_PASSWORD}@rbaproxy.inet-dmz.kv.aval:8000"
-  export HTTPS_PROXY="http://${USER}:${HTTP_PROXY_PASSWORD}@rbaproxy.inet-dmz.kv.aval:8000"
-}
-
-hproxy_unset () {
-  unset HTTP_PROXY_PASSWORD
-  unset NO_PROXY
-  unset HTTP_PROXY
-  unset HTTPS_PROXY
-}
-
-### Other utilities
-export FZF_DEFAULT_OPTS='--color=fg:-1,bg:-1,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#22212c,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#9580FF --color=marker:#9580FF,spinner:#ffb86c,header:#6272a4'
-export FZF_COMPLETION_TRIGGER='~~'
-
-### Modules settings
-
-## fast-syntax-highlighting
-zle_highlight=('paste:none')
+unset file
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
