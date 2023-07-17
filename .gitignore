@@ -1,2 +1,8 @@
+# ignored system files
+.DS_Store
+
+# ignored nvim files
 /nvim/plugin/**
-./DS_Store
+
+# ignored tmux plugins
+/tmux/plugins/tmux*
