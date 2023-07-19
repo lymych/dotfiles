@@ -6,10 +6,6 @@ al () {
   aws sts get-caller-identity --output yaml
 }
 
-ssm () {
-  aws ssm start-session --target $1
-}
-
 # proxy
 hproxy_set () {
   export HTTP_PROXY_PASSWORD=$(security find-generic-password -ga "$USER" -s 'PROXY_PASSWORD' -w)

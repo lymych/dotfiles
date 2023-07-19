@@ -47,7 +47,7 @@ ln -sf ~/dotfiles/tmux/plugins ~/.tmux/plugins
 ### Alacritty
 ```zsh
 mkdir -p ~/.config/alacritty
-ln -sf ~/dotfiles/terminal/alacritty.yml ~/.config/alacritty/alacritty.yml
+ln -sf ~/dotfiles/terminal/alacritty.toml ~/.config/alacritty/alacritty.toml
 ```
 
 *MacOS thin_strokes*
@@ -60,4 +60,9 @@ default delete
 ### Fonts
 ```zsh
 cp ~/dotfiles/fonts/*.ttf "$HOME/Library/Fonts"
+```
+
+### Nvim
+```zsh
+ln -sf ~/dotfiles/nvim ~/.config/nvim
 ```

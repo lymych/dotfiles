@@ -12,13 +12,13 @@ live_config_reload: true
 
 window:
   opacity: 1
-  # padding:
-  #   x: 0
-  #   y: 0
-  dynamic_padding: true
+  padding:
+    x: 1
+    y: 0
   decorations: "full"
   dynamic_title: true
   option_as_alt: "OnlyLeft"
+  decoration_theme_variant: "None"
 
 font:
   normal:
@@ -33,7 +33,7 @@ font:
   italic:
     family: "MesloLGS Nerd Font"
     style: "Italic"
-  size: 12.5
+  size: 13
 
 selection:
   save_to_clipboard: true
@@ -58,56 +58,81 @@ key_bindings:
   - { key: Key8, mods: Command, chars: "\x01\x38" }
   - { key: Key9, mods: Command, chars: "\x01\x39" }
 
-# Colors (Dracula PRO)
-colors:
-  primary:
-    background: "#22212C"
-    foreground: "#F8F8F2"
-    bright_foreground: "#FFFFFF"
-  cursor:
-    text: CellBackground
-    cursor: CellForeground
-  vi_mode_cursor:
-    text: CellBackground
-    cursor: CellForeground
-  search:
-    matches:
-      foreground: "#454158"
-      background: "#8AFF80"
-    focused_match:
-      foreground: "#454158"
-      background: "#FFCA80"
-  footer_bar:
-    background: "#22212C"
-    foreground: "#F8F8F2"
-  hints:
-    start:
-      foreground: "#22212C"
-      background: "#FFFF80"
-    end:
-      foreground: "#FFFF80"
+schemes:
+  dracula: &dracula
+    primary:
       background: "#22212C"
-  line_indicator:
-    foreground: None
-    background: None
-  selection:
-    text: CellForeground
-    background: "#454158"
-  normal:
-    black: "#7970A9"
-    red: "#FF9580"
-    green: "#8AFF80"
-    yellow: "#FFFF80"
-    blue: "#9580FF"
-    magenta: "#FF80BF"
-    cyan: "#80FFEA"
-    white: "#F8F8F2"
-  bright:
-    black: "#7970A9"
-    red: "#FFAA99"
-    green: "#A2FF99"
-    yellow: "#FFFF99"
-    blue: "#AA99FF"
-    magenta: "#FF99CC"
-    cyan: "#99FFEE"
-    white: "#FFFFFF"
+      foreground: "#F8F8F2"
+      bright_foreground: "#FFFFFF"
+    cursor:
+      text: CellBackground
+      cursor: CellForeground
+    vi_mode_cursor:
+      text: CellBackground
+      cursor: CellForeground
+    search:
+      matches:
+        foreground: "#454158"
+        background: "#8AFF80"
+      focused_match:
+        foreground: "#454158"
+        background: "#FFCA80"
+    footer_bar:
+      background: "#22212C"
+      foreground: "#F8F8F2"
+    hints:
+      start:
+        foreground: "#22212C"
+        background: "#FFFF80"
+      end:
+        foreground: "#FFFF80"
+        background: "#22212C"
+    line_indicator:
+      foreground: None
+      background: None
+    selection:
+      text: CellForeground
+      background: "#454158"
+    normal:
+      black: "#7970A9"
+      red: "#FF9580"
+      green: "#8AFF80"
+      yellow: "#FFFF80"
+      blue: "#9580FF"
+      magenta: "#FF80BF"
+      cyan: "#80FFEA"
+      white: "#F8F8F2"
+    bright:
+      black: "#7970A9"
+      red: "#FFAA99"
+      green: "#A2FF99"
+      yellow: "#FFFF99"
+      blue: "#AA99FF"
+      magenta: "#FF99CC"
+      cyan: "#99FFEE"
+      white: "#FFFFFF"
+  gruvbox_material_hard_dark: &gruvbox_material_hard_dark
+    primary:
+      background: '0x1d2021'
+      foreground: '0xd4be98'
+    normal:
+      black:   '0x32302f'
+      red:     '0xea6962'
+      green:   '0xa9b665'
+      yellow:  '0xd8a657'
+      blue:    '0x7daea3'
+      magenta: '0xd3869b'
+      cyan:    '0x89b482'
+      white:   '0xd4be98'
+    bright:
+      black:   '0x32302f'
+      red:     '0xea6962'
+      green:   '0xa9b665'
+      yellow:  '0xd8a657'
+      blue:    '0x7daea3'
+      magenta: '0xd3869b'
+      cyan:    '0x89b482'
+      white:   '0xd4be98'
+
+# Apply the color scheme.
+colors: *gruvbox_material_hard_dark

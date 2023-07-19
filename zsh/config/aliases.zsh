@@ -10,42 +10,20 @@ alias grep="grep --color='auto'" # Grep with colors.
 alias v="$EDITOR"
 alias g='git'
 
-# git
-alias ga='git add'
-alias gaa='git add --all'
-alias gb='git branch'
-alias gst='git status'
-alias gbl='!git --no-pager branch --verbose --all'
-alias gc='git commit -v'
-alias gc!='git commit -v --amend'
-alias gd='git diff --stat=100,100 --patch'
-alias gds='git diff --stat=100,100 --patch --staged'
-alias gdt='git difftool'
-alias gdts='git difftool --staged'
-alias gf='git fetch'
-alias gl='git log --graph --branches --remotes --tags --date=iso8601'
-alias gr='git reflog --date=iso8601'
-alias gs='git status --short'
-alias gsm='git submodule'
-alias gsw='git switch'
-alias gprune-merged="!git branch --merged | grep --invert-match --extended-regexp '\\*|main|master' | xargs -n 1 git branch --delete"
-alias gcm='git checkout main'
-alias gcb='git checkout -b'
-
 ### Custom Alias
+alias k='kubectl'
+alias kcurl='k run -t -i --rm curl --image harbor.avalaunch.aval/docker-hub-proxy/radial/busyboxplus:curl --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"nodeSelector\": { \"node-purpose\": \"compute\" } } }"'
 alias zs='source ~/.zshrc'
 alias ze='nvim ~/.zshrc'
 alias h='history'
 alias hs='history | grep'
 alias hsi='history | grep -i'
-alias k='kubectl'
 alias sre='cd ${HOME}/sre/'
-alias infra='cd ${HOME}/sre/github/ua-avalaunch-terragrunt/live-infrastructure/payments'
+alias infra='cd ${HOME}/sre/github/ua-avalaunch-terragrunt/aws/payments'
 alias gpom='git pull origin main'
 alias rdig='dig @10.191.50.50 +short'
 alias b039='ssh ec2-user@bastion.payments.rbua'
-alias kcurl='k run -t -i --rm curl --image harbor.avalaunch.aval/docker-hub-proxy/radial/busyboxplus:curl --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"nodeSelector\": { \"node-purpose\": \"compute\" } } }"'
-alias cb="brew upgrade; brew cleanup; brew doctor"
+alias cb="brew upgrade; brew cleanup; brew doctor; brew autoremove"
 
 ## Terraform
 alias tf='terraform'
@@ -66,10 +44,12 @@ alias tgp='terragrunt plan'
 alias tgv='terragrunt validate'
 
 ## AWS
+alias ssm='aws ssm start-session --target'
 alias asgci='aws sts get-caller-identity'
+alias aec2="aws ec2 describe-instances --output text --query 'Reservations[*].Instances[*].[InstanceId, Tags[?Key==\`product\`].Value | [0], Tags[?Key==\`Name\`].Value | [0] ]' --no-cli-pager --output=table"
 
 ## github
-alias ghprc='gh pr create -B main -f'
+alias ghprc='git push && gh pr create -B main -f'
 
 # usage: kubectl logs {pod} rnl
 alias -g rntl="| sed 's/\\\n\\\t/\'$'\n\t''/g'" # newline and tab

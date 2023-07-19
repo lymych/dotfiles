@@ -1,8 +1,10 @@
 # ignored system files
 .DS_Store
+.idea
 
 # ignored nvim files
 /nvim/plugin/**
+/nvim/*lock.json
 
 # ignored tmux plugins
 /tmux/plugins/tmux*

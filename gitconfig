@@ -1,0 +1,37 @@
+[init]
+  defaultBranch = main
+[user]
+  name = Vitalii Lymych
+  email = vitalii.lymych@raiffeisen.ua
+[difftool "nvimdiff"]
+  cmd = nvim -d $LOCAL $REMOTE
+  trustexitcode = true
+[diff]
+  algorithm = histogram
+  tool = nvimdiff
+  renames = copies
+  submodule = log
+  wsErrorHighlight = all
+[push]
+  autoSetupRemote = true
+[rebase]
+  autosquash = true
+[alias]
+  aa = add --all
+  ap = add --patch
+  st = status
+  branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
+  ci = commit -v
+  caa = commit -a -m
+  c- = commit -v --amend
+  co = checkout
+  com = checkout main
+  cob = checkout -b
+  d = diff --stat=100,100 --patch
+  ds = diff --stat=100,100 --patch --staged
+  dt = difftool
+  dts = difftool --staged
+  f = fetch
+  l = log --graph --branches --remotes --tags --date=iso8601
+  delete-merged-branches = "!git co main && git branch --merged | grep -v 'main\\|master\\|develop' | xargs git branch -D"
+  task = '!git checkout main && git pull && git checkout -b'

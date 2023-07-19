@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 create_link() {
   #TODO create backup
   bkp_date=`date -Iseconds`
