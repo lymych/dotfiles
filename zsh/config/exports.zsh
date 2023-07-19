@@ -9,7 +9,7 @@ if ([[ $OSTYPE =~ 'darwin*' ]]) {
 
 # Basics
 export EDITOR=nvim
-# export LANG='en_US.UTF-8'
+export LANG='en_US.UTF-8'
 
 # terraform
 export TERRAGRUNT_DOWNLOAD="${HOME}/sre/tmp/.terragrunt_cache"

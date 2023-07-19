@@ -1,6 +1,6 @@
 # TMUX
 ## Install
 ```zsh
-mkdir ~/.tmux
-ln -sf ~/configs/tmux/plugins ~/.tmux/plugins
+mkdir ~/.config/tmux/
+ln -sf ~/dotfiles/tmux/plugins ~/.config/tmux/plugins
 ```
