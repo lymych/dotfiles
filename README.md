@@ -30,9 +30,9 @@ git submodule update --remote
 
 ### Tmux
 ```zsh
-mkdir ~/.tmux
+mkdir -p ~/.config/tmux/
 ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
-ln -sf ~/dotfiles/tmux/plugins ~/.tmux/plugins
+ln -sf ~/dotfiles/tmux/plugins ~/.config/tmux/plugins
 ```
 
 #### TPM
@@ -64,5 +64,6 @@ cp ~/dotfiles/fonts/*.ttf "$HOME/Library/Fonts"
 
 ### Nvim
 ```zsh
+brew install npm
 ln -sf ~/dotfiles/nvim ~/.config/nvim
 ```
