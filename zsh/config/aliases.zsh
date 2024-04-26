@@ -7,7 +7,7 @@ alias grep="grep --color='auto'" # Grep with colors.
 # alias df='df --all --si --print-type' # Display all disk usage statistics with SI units and FS types.
 
 # Custom Shortcuts
-alias v="$EDITOR"
+alias nv="$EDITOR"
 alias g='git'
 
 ### Custom Alias
