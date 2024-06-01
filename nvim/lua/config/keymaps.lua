@@ -44,3 +44,6 @@ map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsea
 
 -- new file
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
+
+-- Oil
+map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
