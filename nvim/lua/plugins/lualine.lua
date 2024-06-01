@@ -9,6 +9,7 @@ return   {
       section_separators = { left = '', right = '' },
       always_divide_middle = true,
       globalstatus = false,
+      disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
     },
     sections = {
       lualine_a = { 'mode' },
