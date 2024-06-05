@@ -12,7 +12,7 @@ return {
     "folke/tokyonight.nvim",
     priority = 1000,
     config = function()
-      require("tokyonight").setup({
+      require("tokyonight").setup {
         on_highlights = function(hl, c)
           local prompt = "#2d3149"
           hl.TelescopeNormal = {
@@ -43,8 +43,8 @@ return {
             fg = c.bg_dark,
           }
         end,
-      })
-      vim.cmd.colorscheme("tokyonight-moon")
+      }
+      vim.cmd.colorscheme "tokyonight-moon"
     end,
   },
 }

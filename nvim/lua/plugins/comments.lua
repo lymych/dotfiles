@@ -17,7 +17,7 @@ return {
           "--line-number",
           "--column",
         },
-        pattern = [[\b(KEYWORDS)\b]]
+        pattern = [[\b(KEYWORDS)\b]],
       },
     },
     -- stylua: ignore
@@ -30,12 +30,12 @@ return {
   },
   -- Comments --
   {
-    'JoosepAlviste/nvim-ts-context-commentstring',
+    "JoosepAlviste/nvim-ts-context-commentstring",
     lazy = true,
     opts = {
       enable_autocmd = false,
       languages = {
-        typescript = '// %s',
+        typescript = "// %s",
       },
     },
   },
@@ -45,7 +45,7 @@ return {
     opts = {
       options = {
         custom_commentstring = function()
-          return require('ts_context_commentstring.internal').calculate_commentstring() or vim.bo.commentstring
+          return require("ts_context_commentstring.internal").calculate_commentstring() or vim.bo.commentstring
         end,
       },
     },

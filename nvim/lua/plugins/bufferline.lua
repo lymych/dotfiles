@@ -26,8 +26,8 @@ return {
       left_mouse_command = "buffer %d", -- can be a string | function, | false see "Mouse actions"
       move_wraps_at_ends = true,
       indicator = {
-        style = 'icon',
-        icon = '',
+        style = "icon",
+        icon = "",
       },
     },
   },

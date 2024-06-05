@@ -1,14 +1,13 @@
 return {
   {
-    'nvim-treesitter/nvim-treesitter',
+    "nvim-treesitter/nvim-treesitter",
     dependencies = {
-      'JoosepAlviste/nvim-ts-context-commentstring',
+      "JoosepAlviste/nvim-ts-context-commentstring",
     },
     build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
     cmd = { "TSUpdateSync" },
-    main = 'nvim-treesitter.configs',
-    auto_install = true,
+    main = "nvim-treesitter.configs",
     opts = {
       highlight = { enable = true },
       indent = { enable = true },
@@ -28,8 +27,8 @@ return {
         "vimdoc",
         "yaml",
         "terraform",
-        "hcl"
+        "hcl",
       },
-    }
-  }
+    },
+  },
 }

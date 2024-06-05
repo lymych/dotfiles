@@ -55,4 +55,4 @@ alias -g rntl="| sed 's/\\\n\\\t/\'$'\n\t''/g'" # newline and tab
 alias -g rnl="| sed 's/\\\n/\'$'\n''/g'"        # only new line
 
 # FZF
-alias list_repos='nvim ~/sre/github/$(ls -d ~/sre/github/*/ | cut -d/ -f6 | fzf)'
+alias list_repos="ls -d ~/sre/github/*/ | cut -d/ -f6 | fzf --bind='enter:execute($EDITOR ~/sre/github/{+})'"

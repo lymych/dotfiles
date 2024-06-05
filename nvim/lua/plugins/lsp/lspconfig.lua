@@ -8,10 +8,10 @@ return {
     },
     config = function()
       -- import lspconfig plugin
-      local lspconfig = require("lspconfig")
+      local lspconfig = require "lspconfig"
 
       -- import cmp-nvim-lsp plugin
-      local cmp_nvim_lsp = require("cmp_nvim_lsp")
+      local cmp_nvim_lsp = require "cmp_nvim_lsp"
 
       local keymap = vim.keymap -- for conciseness
 
@@ -72,17 +72,68 @@ return {
       end
 
       -- configure python server
-      lspconfig["pyright"].setup({
+      lspconfig["pyright"].setup {
         capabilities = capabilities,
         on_attach = on_attach,
-      })
+      }
 
       -- configure python server
-      lspconfig["helm_ls"].setup({
+      lspconfig["helm_ls"].setup {
         capabilities = capabilities,
         on_attach = on_attach,
-      })
+        logLevel = "info",
+        valuesFiles = {
+          mainValuesFile = "values.yaml",
+          additionalValuesFilesGlobPattern = "values*.yaml",
+        },
+        yamlls = {
+          enabled = true,
+          diagnosticsLimit = 50,
+          showDiagnosticsDirectly = false,
+          path = "yaml-language-server",
+          config = {
+            schemas = {
+              kubernetes = "templates/**",
+            },
+            completion = true,
+            hover = true,
+            -- any other config from https://github.com/redhat-developer/yaml-language-server#language-server-settings
+          },
+        },
+      }
 
+      -- configure yaml server
+      lspconfig["yamlls"].setup {
+        on_attach = function(client, bufnr)
+          client.server_capabilities.documentFormattingProvider = true
+          -- I add this line
+          on_attach(client, bufnr)
+        end,
+        flags = lsp_flags,
+        capabilities = capabilities,
+        settings = {
+          yaml = {
+            format = {
+              enable = true,
+            },
+            schemaStore = {
+              enable = true,
+            },
+          },
+        },
+      }
+
+      lspconfig["lua_ls"].setup {
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { "vim" },
+            },
+          },
+        },
+      }
+
+      lspconfig["terraformls"].setup {}
     end,
-  }
+  },
 }
