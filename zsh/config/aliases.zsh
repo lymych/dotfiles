@@ -3,6 +3,7 @@
 # alias cp='cp --interactive --verbose' # Copy nodes with interactive mode and extra verbosity.
 # alias ln='ln --interactive --verbose' # Link nodes with interactive mode and extra verbosity.
 alias grep="grep --color='auto'" # Grep with colors.
+alias ls="ls --color=auto"
 # alias du='du --max-depth=1 --si' # Display size of files and folders under current directory.
 # alias df='df --all --si --print-type' # Display all disk usage statistics with SI units and FS types.
 
@@ -18,7 +19,7 @@ alias ze='nvim ~/.zshrc'
 alias h='history'
 alias hs='history | grep'
 alias hsi='history | grep -i'
-alias sre='cd ${HOME}/sre/'
+alias work='cd ${HOME}/sre/github'
 alias infra='cd ${HOME}/sre/github/ua-avalaunch-terragrunt/aws/payments'
 alias rdig='dig @10.191.50.50 +short'
 alias b039='ssh ec2-user@bastion.payments.rbua'
