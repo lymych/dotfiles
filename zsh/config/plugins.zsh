@@ -24,7 +24,6 @@ zle_highlight=('paste:none')
 source "$ZSH_CONFIG_PATH/plugins/zsh-abbr/zsh-abbr.zsh"
 
 # load zsh-abbr, then
-
 chroma_single_word() {
   (( next_word = 2 | 8192 ))
 

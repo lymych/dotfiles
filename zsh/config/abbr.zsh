@@ -6,6 +6,7 @@ abbr -S -q g='git'
 ### Custom Alias
 abbr -S -q zs='source ~/.zshrc'
 abbr -S -q ze='nvim ~/.zshrc'
+abbr -S -q dot='cd ~/dotfiles/'
 abbr -S -q cb="brew upgrade; brew cleanup; brew doctor; brew autoremove"
 
 ## Terraform
