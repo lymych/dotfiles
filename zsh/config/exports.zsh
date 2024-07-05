@@ -1,3 +1,7 @@
+if [[ $(uname) == "Darwin" ]]; then
+    export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+fi
+
 # Basics
 export EDITOR=nvim
 export LANG='en_US.UTF-8'
