@@ -12,7 +12,7 @@ save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [shell]
-args = ["-l", "-c", "tmux attach || tmux"]
+args = ["-l", "-c", "tmux a -t base || tmux new -s base"]
 program = "/bin/zsh"
 
 [window]
@@ -23,7 +23,7 @@ opacity = 1
 option_as_alt = "OnlyLeft"
 
 [window.padding]
-x = 0
+x = 5
 y = 0
 
 [font]

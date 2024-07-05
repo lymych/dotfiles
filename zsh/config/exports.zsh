@@ -1,12 +1,3 @@
-#path=(
-#  $path
-#)
-
-# macOS specific exports.
-if ([[ $OSTYPE =~ 'darwin*' ]]) {
- export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-}
-
 # Basics
 export EDITOR=nvim
 export LANG='en_US.UTF-8'
@@ -19,9 +10,6 @@ export TF_CLI_ARGS_apply=--parallelism=50
 export TF_CLI_ARGS_plan=--parallelism=50
 export TF_CLI_ARGS_destroy=--parallelism=50
 export TERRAGRUNT_APPLY=local
-
-export AWS_CA_BUNDLE=/opt/homebrew/etc/ca-certificates/cert.pem
-export NODE_EXTRA_CA_CERTS=/usr/local/etc/pki/rbua.pem
 
 # fzf
 # export FZF_DEFAULT_COLORS='--color=fg:-1,bg:-1,hl:#bd93f9,fg+:#f8f8f2,bg+:#22212c,hl+:#bd93f9,info:#ffb86c,prompt:#50fa7b,pointer:#9580FF,marker:#9580FF,spinner:#ffb86c,header:#6272a4'
