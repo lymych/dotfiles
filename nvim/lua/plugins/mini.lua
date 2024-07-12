@@ -1,63 +1,67 @@
 return {
-  -- auto pairs
   {
-    "echasnovski/mini.pairs",
+    "echasnovski/mini.nvim",
     event = "VeryLazy",
-    opts = {},
-  },
-  -- Fast and feature-rich surround actions. For text that includes
-  -- surrounding characters like brackets or quotes, this allows you
-  -- to select the text inside, change or modify the surrounding characters,
-  -- and more.
-  {
-    "echasnovski/mini.surround",
-    opts = {
-      highlight_duration = 500,
-      n_lines = 20,
-      mappings = {
-        add = "sa", -- Add surrounding in Normal and Visual modes
-        delete = "sd", -- Delete surrounding
-        find = "sf", -- Find surrounding (to the right)
-        find_left = "sF", -- Find surrounding (to the left)
-        highlight = "sh", -- Highlight surrounding
-        replace = "sr", -- Replace surrounding
-        update_n_lines = "sn", -- Update `n_lines`
-      },
-      silent = false,
-    },
-  },
-  {
-    "echasnovski/mini.indentscope",
-    version = false, -- wait till new 0.7.0 release to put it back on semver
-    event = { "BufReadPre", "BufNewFile" },
-    opts = {
-      -- symbol = "▏",
-      symbol = "│",
-      options = { try_as_border = true },
-    },
-    init = function()
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = {
-          "help",
-          "dashboard",
-          "neo-tree",
-          "Trouble",
-          "lazy",
-          "mason",
-        },
-        callback = function()
-          vim.b.miniindentscope_disable = true
-        end,
-      })
-    end,
-  },
-  -- buffer remove
-  {
-    "echasnovski/mini.bufremove",
+    version = false,
     -- stylua: ignore
     keys = {
       { "<leader>x", function() require("mini.bufremove").delete(0, false) end, desc = "Delete Buffer" },
       { "<leader>X", function() require("mini.bufremove").delete(0, true) end, desc = "Delete Buffer (Force)" },
+      { "<leader>e", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end, desc = "Open mini.files (Directory of Current File)", },
+      { "<leader>E", function() require("mini.files").open(vim.uv.cwd(), true) end, desc = "Open mini.files (cwd)", },
     },
+    config = function()
+      require("mini.bufremove").setup()
+
+      require("mini.pairs").setup()
+
+      require("mini.surround").setup {
+        highlight_duration = 500,
+        n_lines = 20,
+        mappings = {
+          add = "sa", -- Add surrounding in Normal and Visual modes
+          delete = "sd", -- Delete surrounding
+          find = "sf", -- Find surrounding (to the right)
+          find_left = "sF", -- Find surrounding (to the left)
+          highlight = "sh", -- Highlight surrounding
+          replace = "sr", -- Replace surrounding
+          update_n_lines = "sn", -- Update `n_lines`
+        },
+        silent = false,
+      }
+
+      require("mini.indentscope").setup {
+        symbol = "│",
+        options = { try_as_border = true },
+        vim.api.nvim_create_autocmd("FileType", {
+          pattern = {
+            "help",
+            "dashboard",
+            "neo-tree",
+            "Trouble",
+            "lazy",
+            "mason",
+          },
+          callback = function()
+            vim.b.miniindentscope_disable = true
+          end,
+        }),
+      }
+
+      require("mini.comment").setup {
+        options = {
+          custom_commentstring = function()
+            return require("ts_context_commentstring.internal").calculate_commentstring() or vim.bo.commentstring
+          end,
+        },
+      }
+
+      require("mini.ai").setup()
+
+      require("mini.files").setup()
+
+      require("mini.animate").setup()
+      require("mini.jump2d").setup {}
+    end,
   },
 }

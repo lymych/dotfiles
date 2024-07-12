@@ -1,13 +1,4 @@
 return {
-  -- {
-  --   "sainnhe/gruvbox-material",
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-  --     vim.g.gruvbox_material_background = "hard"
-  --     vim.cmd.colorscheme("gruvbox-material")
-  --   end,
-  -- },
   {
     "folke/tokyonight.nvim",
     priority = 1000,
@@ -45,6 +36,17 @@ return {
         end,
       }
       vim.cmd.colorscheme "tokyonight-moon"
+      -- You can configure highlights by doing something like:
+      vim.cmd.hi "Comment gui=none"
     end,
   },
+  -- {
+  --   "sainnhe/gruvbox-material",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     vim.g.gruvbox_material_background = "hard"
+  --     vim.cmd.colorscheme("gruvbox-material")
+  --   end,
+  -- },
 }

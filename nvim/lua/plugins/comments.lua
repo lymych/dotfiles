@@ -1,6 +1,4 @@
 return {
-  -- Finds and lists all of the TODO, HACK, BUG, etc comment
-  -- in your project and loads them into a browsable list.
   {
     "folke/todo-comments.nvim",
     dependencies = {
@@ -28,7 +26,7 @@ return {
       { "<leader>fT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
     },
   },
-  -- Comments --
+
   {
     "JoosepAlviste/nvim-ts-context-commentstring",
     lazy = true,
@@ -36,17 +34,6 @@ return {
       enable_autocmd = false,
       languages = {
         typescript = "// %s",
-      },
-    },
-  },
-  {
-    "echasnovski/mini.comment",
-    event = "VeryLazy",
-    opts = {
-      options = {
-        custom_commentstring = function()
-          return require("ts_context_commentstring.internal").calculate_commentstring() or vim.bo.commentstring
-        end,
       },
     },
   },
