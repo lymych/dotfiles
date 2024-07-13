@@ -178,8 +178,6 @@ return {
         yamlls = {
           on_attach = function(client, bufnr)
             client.server_capabilities.documentFormattingProvider = true
-            -- I add this line
-            on_attach(client, bufnr)
           end,
           flags = lsp_flags,
           capabilities = capabilities,
