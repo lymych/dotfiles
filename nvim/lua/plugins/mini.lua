@@ -9,6 +9,7 @@ return {
       { "<leader>X", function() require("mini.bufremove").delete(0, true) end, desc = "Delete Buffer (Force)" },
       { "<leader>e", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end, desc = "Open mini.files (Directory of Current File)", },
       { "<leader>E", function() require("mini.files").open(vim.uv.cwd(), true) end, desc = "Open mini.files (cwd)", },
+      { "<leader>go", function() require("mini.diff").toggle_overlay(0) end, desc = "Toggle mini.diff overlay", },
     },
     config = function()
       require("mini.bufremove").setup()
@@ -35,12 +36,16 @@ return {
         options = { try_as_border = true },
         vim.api.nvim_create_autocmd("FileType", {
           pattern = {
-            "help",
+            "alpha",
             "dashboard",
+            "fzf",
+            "help",
+            "lazy",
+            "lazyterm",
+            "mason",
             "neo-tree",
             "Trouble",
-            "lazy",
-            "mason",
+            "trouble",
           },
           callback = function()
             vim.b.miniindentscope_disable = true
@@ -61,7 +66,19 @@ return {
       require("mini.files").setup()
 
       require("mini.animate").setup()
-      require("mini.jump2d").setup {}
+
+      require("mini.jump2d").setup()
+
+      require("mini.diff").setup {
+        view = {
+          style = "sign",
+          signs = {
+            add = "▎",
+            change = "▎",
+            delete = "",
+          },
+        },
+      }
     end,
   },
 }

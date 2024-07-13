@@ -9,7 +9,7 @@ require("lazy").setup({
   require "plugins/dressing",
   require "plugins/formatting",
   require "plugins/fzf",
-  require "plugins/git",
+  -- require "plugins/git",
   require "plugins/indent-blankline",
   require "plugins/init",
   require "plugins/lspconfig",
