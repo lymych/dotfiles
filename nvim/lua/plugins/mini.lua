@@ -70,6 +70,10 @@ return {
       require("mini.jump2d").setup()
 
       require("mini.diff").setup {
+        mappings = {
+          apply = "<leader>gh",
+          reset = "<leader>gr",
+        },
         view = {
           style = "sign",
           signs = {
@@ -79,6 +83,10 @@ return {
           },
         },
       }
+
+      require("mini.icons").setup()
+      MiniIcons.mock_nvim_web_devicons()
+      -- one more
     end,
   },
 }

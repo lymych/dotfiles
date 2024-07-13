@@ -2,7 +2,10 @@ return {
   "akinsho/bufferline.nvim",
   version = "*",
   event = "VeryLazy",
-  dependencies = "nvim-tree/nvim-web-devicons",
+  keys = {
+    { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle pin" },
+    { "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete non-pinned buffers" },
+  },
   opts = {
     highlights = {
       fill = {
@@ -30,9 +33,5 @@ return {
         icon = "",
       },
     },
-  },
-  keys = {
-    { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle pin" },
-    { "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete non-pinned buffers" },
   },
 }
