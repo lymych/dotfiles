@@ -10,6 +10,7 @@ return {
       { "<leader>e", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end, desc = "Open mini.files (Directory of Current File)", },
       { "<leader>E", function() require("mini.files").open(vim.uv.cwd(), true) end, desc = "Open mini.files (cwd)", },
       { "<leader>go", function() require("mini.diff").toggle_overlay(0) end, desc = "Toggle mini.diff overlay", },
+      { "<cr>", "<cmd>lua MiniJump2d.start(MiniJump2d.builtin_opts.single_character)<CR>", desc = "Start 2d jumping" },
     },
     config = function()
       require("mini.bufremove").setup()
@@ -20,13 +21,13 @@ return {
         highlight_duration = 500,
         n_lines = 20,
         mappings = {
-          add = "sa", -- Add surrounding in Normal and Visual modes
-          delete = "sd", -- Delete surrounding
-          find = "sf", -- Find surrounding (to the right)
-          find_left = "sF", -- Find surrounding (to the left)
-          highlight = "sh", -- Highlight surrounding
-          replace = "sr", -- Replace surrounding
-          update_n_lines = "sn", -- Update `n_lines`
+          add = "sa",
+          delete = "sd",
+          find = "sf",
+          find_left = "sF",
+          highlight = "sh",
+          replace = "sr",
+          update_n_lines = "sn",
         },
         silent = false,
       }
@@ -67,7 +68,23 @@ return {
 
       require("mini.animate").setup()
 
-      require("mini.jump2d").setup()
+      require("mini.jump2d").setup {
+        labels = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        allowed_lines = {
+          blank = false,
+          cursor_before = true,
+          cursor_at = true,
+          cursor_after = true,
+          fold = false,
+        },
+        view = {
+          dim = true,
+          n_steps_ahead = 0,
+        },
+        mappings = {
+          start_jumping = "",
+        },
+      }
 
       require("mini.diff").setup {
         mappings = {
@@ -86,7 +103,7 @@ return {
 
       require("mini.icons").setup()
       MiniIcons.mock_nvim_web_devicons()
-      -- one more
+      -- more
     end,
   },
 }
