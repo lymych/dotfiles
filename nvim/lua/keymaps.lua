@@ -46,3 +46,6 @@ map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 
 -- Oil
 map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- Lazygit
+map("n", "<leader>gg", "<cmd>!tmux new-window -c " .. vim.fn.getcwd() .. " -- lazygit <CR><CR>", { desc = "Git Go" })
