@@ -9,7 +9,7 @@
 	url = https://github.com/romkatv/powerlevel10k.git
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
-	url = https://github.com/tmux-plugins/tpm.git
+	url = https://github.com/tmux-plugins/tpm
 [submodule "zsh/plugins/zsh-abbr"]
 	path = zsh/plugins/zsh-abbr
 	url = https://github.com/olets/zsh-abbr.git
