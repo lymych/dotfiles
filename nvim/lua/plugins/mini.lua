@@ -68,6 +68,13 @@ return {
 
       require("mini.animate").setup()
 
+      -- Fix paste https://github.com/echasnovski/mini.nvim/issues/709
+      -- vim.paste = function(_, phase)
+      --   if phase == -1 or phase == 3 then
+      --     vim.fn.feedkeys('"+p', "nx")
+      --   end
+      -- end
+
       require("mini.jump2d").setup {
         labels = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
         allowed_lines = {
