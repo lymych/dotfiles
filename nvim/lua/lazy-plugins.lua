@@ -1,14 +1,11 @@
--- [[ Configure and install plugins ]]
 require("lazy").setup({
   -- modular approach: using `require 'path/name'` will
   -- include a plugin definition from file lua/path/name.lua
 
-  require "plugins/bufferline",
   require "plugins/colorscheme",
   require "plugins/comments",
   require "plugins/dressing",
   require "plugins/formatting",
-  require "plugins/fzf",
   require "plugins/indent-blankline",
   require "plugins/init",
   require "plugins/lspconfig",

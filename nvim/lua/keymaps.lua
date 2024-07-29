@@ -32,10 +32,8 @@ map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 -- map("v", ">", ">gv")
 
 -- buffers
-map("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
-map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
-map("n", "[b", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
-map("n", "]b", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
+map("n", "<S-h>", "<cmd>bp<cr>", { desc = "Prev buffer" })
+map("n", "<S-l>", "<cmd>bn<cr>", { desc = "Next buffer" })
 map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 
 -- Clear search with <esc>
@@ -48,4 +46,10 @@ map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Lazygit
-map("n", "<leader>gg", "<cmd>!tmux new-window -c " .. vim.fn.getcwd() .. " -- lazygit <CR><CR>", { desc = "Git Go" })
+map(
+  "n",
+  "<leader>gg",
+  "<cmd>!wezterm cli spawn --cwd " .. vim.fn.getcwd() .. " -- lazygit <CR><CR>",
+  { desc = "Git Go" }
+)
+-- map("n", "<leader>gg", "<cmd>!tmux new-window -c " .. vim.fn.getcwd() .. " -- lazygit <CR><CR>", { desc = "Git Go" })

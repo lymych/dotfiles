@@ -2,10 +2,6 @@ return {
   "akinsho/bufferline.nvim",
   version = "*",
   event = "VeryLazy",
-  keys = {
-    { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle pin" },
-    { "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete non-pinned buffers" },
-  },
   opts = {
     highlights = {
       fill = {
@@ -13,7 +9,6 @@ return {
       },
     },
     options = {
-      color_icons = false,
       separator_style = "thick",
       always_show_bufferline = false,
       offsets = {
