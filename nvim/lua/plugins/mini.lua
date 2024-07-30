@@ -65,6 +65,9 @@ return {
       require("mini.ai").setup()
 
       require("mini.files").setup()
+      vim.api.nvim_set_hl(0, "MiniFilesNormal", { link = "Normal" })
+      vim.api.nvim_set_hl(0, "MiniFilesBorder", { link = "Normal" })
+      vim.api.nvim_set_hl(0, "MiniFilesTitleFocused", { link = "Normal" })
 
       require("mini.animate").setup()
 

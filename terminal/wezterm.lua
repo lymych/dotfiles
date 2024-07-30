@@ -3,13 +3,21 @@ local config = {}
 
 if wezterm.target_triple:find("darwin") then
 	config.integrated_title_buttons = {}
+	config.window_background_opacity = 0.9
+	config.macos_window_background_blur = 15
+	config.integrated_title_button_style = "MacOsNative"
+elseif wezterm.target_triple:find("windows") then
+	config.window_background_opacity = 0.9
+	config.win32_system_backdrop = "Mica"
 elseif wezterm.target_triple:find("linux") then
+	config.integrated_title_button_style = "Gnome"
 	config.integrated_title_buttons = { "Hide", "Close" }
 end
 
 config.font = wezterm.font("MesloLGS Nerd Font")
 config.font_size = 14.5
-config.color_scheme = "Gruvbox Material (Gogh)" -- "Gruvbox dark, hard (base16)"
+-- config.color_scheme = "Gruvbox Material (Gogh)" -- "Gruvbox dark, hard (base16)"
+config.color_scheme = "Gruvbox dark, hard (base16)"
 
 config.window_frame = {
 	font_size = 14,
@@ -30,7 +38,6 @@ config.hide_tab_bar_if_only_one_tab = false
 
 config.show_new_tab_button_in_tab_bar = true
 config.prefer_to_spawn_tabs = true
-config.integrated_title_button_style = "Gnome"
 
 config.freetype_load_target = "Normal"
 
