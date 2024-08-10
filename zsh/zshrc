@@ -37,3 +37,5 @@ fi
 
 # FZF init
 if command -v fzf &> /dev/null; then source <(fzf --zsh); fi
+# Zoxide
+if command -v zoxide &> /dev/null; then eval "$(zoxide init zsh)"; fi

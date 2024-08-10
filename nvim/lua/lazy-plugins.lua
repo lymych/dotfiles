@@ -16,6 +16,7 @@ require("lazy").setup({
   require "plugins/treesitter",
   require "plugins.extras.lang.helm",
   require "plugins/telescope",
+  require "plugins/test",
   -- require "plugins/git",
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the

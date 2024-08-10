@@ -47,7 +47,7 @@ config.default_cwd = wezterm.home_dir
 
 -- Behaviour --
 config.check_for_updates = false
--- config.audible_bell = "Disabled"
+config.audible_bell = "Disabled"
 
 -- Performance ---
 config.front_end = "WebGpu"
@@ -64,7 +64,7 @@ config.keys = {
   -- stylua: ignore
 	-- splitting
 	{ mods = "LEADER", key = "-", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
-	{ mods = "LEADER", key = "=", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+	{ mods = "LEADER", key = "|", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 	{ mods = "LEADER", key = "z", action = wezterm.action.TogglePaneZoomState },
 	-- rotate panes
 	{ mods = "LEADER", key = "Space", action = wezterm.action.RotatePanes("Clockwise") },
@@ -72,10 +72,10 @@ config.keys = {
 	{ mods = "LEADER", key = "0", action = wezterm.action.PaneSelect({ mode = "SwapWithActive" }) },
 	{ mods = "LEADER", key = "Enter", action = wezterm.action.ActivateCopyMode },
 	-- Change Active Pane
-	{ key = "h", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Left") },
-	{ key = "l", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Right") },
-	{ key = "k", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Up") },
-	{ key = "j", mods = "CTRL", action = wezterm.action.ActivatePaneDirection("Down") },
+	{ key = "h", mods = "LEADER", action = wezterm.action.ActivatePaneDirection("Left") },
+	{ key = "l", mods = "LEADER", action = wezterm.action.ActivatePaneDirection("Right") },
+	{ key = "k", mods = "LEADER", action = wezterm.action.ActivatePaneDirection("Up") },
+	{ key = "j", mods = "LEADER", action = wezterm.action.ActivatePaneDirection("Down") },
 	-- Resize Active Pane
 	{ key = "h", mods = "META", action = wezterm.action.AdjustPaneSize({ "Left", 5 }) },
 	{ key = "j", mods = "META", action = wezterm.action.AdjustPaneSize({ "Down", 5 }) },
@@ -83,6 +83,12 @@ config.keys = {
 	{ key = "l", mods = "META", action = wezterm.action.AdjustPaneSize({ "Right", 5 }) },
 	-- CloseCurrentPane
 	{ key = "w", mods = "CTRL", action = wezterm.action.CloseCurrentPane({ confirm = true }) },
+	{ key = "t", mods = "CTRL", action = wezterm.action.SpawnCommandInNewTab({ cwd = wezterm.home_dir }) },
+
+	{ key = "l", mods = "LEADER", action = wezterm.action.ShowLauncher },
+	{ key = "s", mods = "LEADER", action = wezterm.action.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }) },
+	{ key = "t", mods = "LEADER", action = wezterm.action.ShowLauncherArgs({ flags = "FUZZY|TABS" }) },
+	{ key = "c", mods = "LEADER", action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }) },
 }
 
 return config
