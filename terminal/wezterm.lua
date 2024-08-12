@@ -82,8 +82,8 @@ config.keys = {
 	{ key = "k", mods = "META", action = wezterm.action.AdjustPaneSize({ "Up", 5 }) },
 	{ key = "l", mods = "META", action = wezterm.action.AdjustPaneSize({ "Right", 5 }) },
 	-- CloseCurrentPane
-	{ key = "w", mods = "CTRL", action = wezterm.action.CloseCurrentPane({ confirm = true }) },
-	{ key = "t", mods = "CTRL", action = wezterm.action.SpawnCommandInNewTab({ cwd = wezterm.home_dir }) },
+	{ key = "w", mods = "CMD", action = wezterm.action.CloseCurrentPane({ confirm = true }) },
+	{ key = "t", mods = "CMD", action = wezterm.action.SpawnCommandInNewTab({ cwd = wezterm.home_dir }) },
 
 	{ key = "l", mods = "LEADER", action = wezterm.action.ShowLauncher },
 	{ key = "s", mods = "LEADER", action = wezterm.action.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }) },

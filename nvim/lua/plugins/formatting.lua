@@ -13,6 +13,7 @@ return {
         python = { "isort", "black" },
         hcl = { "terragrunt_hclfmt" },
         terraform = { "terraform_fmt" },
+        go = { "goimports", "gofumpt" },
       },
       format_on_save = {
         lsp_fallback = true,

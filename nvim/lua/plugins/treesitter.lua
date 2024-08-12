@@ -10,7 +10,6 @@ return {
       highlight = { enable = true },
       indent = { enable = true },
       ensure_installed = {
-        "c",
         "bash",
         "json",
         "lua",
@@ -26,6 +25,8 @@ return {
         "yaml",
         "terraform",
         "hcl",
+        "go",
+        "gomod",
       },
     },
     config = function(_, opts)

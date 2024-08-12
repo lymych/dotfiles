@@ -14,10 +14,11 @@ require("lazy").setup({
   require "plugins/nvim-cmp",
   require "plugins/oil",
   require "plugins/treesitter",
-  require "plugins.extras.lang.helm",
   require "plugins/telescope",
   require "plugins/test",
   -- require "plugins/git",
+  require "plugins.extras.lang.helm",
+  require "plugins.extras.lang.go",
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
