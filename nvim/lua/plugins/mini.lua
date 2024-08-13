@@ -47,6 +47,7 @@ return {
             "neo-tree",
             "Trouble",
             "trouble",
+            "Neogit*",
           },
           callback = function()
             vim.b.miniindentscope_disable = true
@@ -69,7 +70,16 @@ return {
       vim.api.nvim_set_hl(0, "MiniFilesBorder", { link = "Normal" })
       vim.api.nvim_set_hl(0, "MiniFilesTitleFocused", { link = "Normal" })
 
-      require("mini.animate").setup()
+      require("mini.animate").setup {
+        vim.api.nvim_create_autocmd("FileType", {
+          pattern = {
+            "Neogit*",
+          },
+          callback = function()
+            vim.b.minianimate_disable = true
+          end,
+        }),
+      }
 
       -- Fix paste https://github.com/echasnovski/mini.nvim/issues/709
       -- vim.paste = function(_, phase)

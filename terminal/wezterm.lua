@@ -3,11 +3,11 @@ local config = {}
 
 if wezterm.target_triple:find("darwin") then
 	config.integrated_title_buttons = {}
-	config.window_background_opacity = 0.9
+	config.window_background_opacity = 0.95
 	config.macos_window_background_blur = 15
 	config.integrated_title_button_style = "MacOsNative"
 elseif wezterm.target_triple:find("windows") then
-	config.window_background_opacity = 0.9
+	config.window_background_opacity = 0.95
 	config.win32_system_backdrop = "Mica"
 elseif wezterm.target_triple:find("linux") then
 	config.integrated_title_button_style = "Gnome"
@@ -66,11 +66,12 @@ config.keys = {
 	{ mods = "LEADER", key = "-", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
 	{ mods = "LEADER", key = "|", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 	{ mods = "LEADER", key = "z", action = wezterm.action.TogglePaneZoomState },
+
 	-- rotate panes
 	{ mods = "LEADER", key = "Space", action = wezterm.action.RotatePanes("Clockwise") },
-	-- show the pane selection mode, but have it swap the active and selected panes
 	{ mods = "LEADER", key = "0", action = wezterm.action.PaneSelect({ mode = "SwapWithActive" }) },
 	{ mods = "LEADER", key = "Enter", action = wezterm.action.ActivateCopyMode },
+
 	-- Change Active Pane
 	{ key = "h", mods = "LEADER", action = wezterm.action.ActivatePaneDirection("Left") },
 	{ key = "l", mods = "LEADER", action = wezterm.action.ActivatePaneDirection("Right") },
@@ -81,11 +82,13 @@ config.keys = {
 	{ key = "j", mods = "META", action = wezterm.action.AdjustPaneSize({ "Down", 5 }) },
 	{ key = "k", mods = "META", action = wezterm.action.AdjustPaneSize({ "Up", 5 }) },
 	{ key = "l", mods = "META", action = wezterm.action.AdjustPaneSize({ "Right", 5 }) },
+
 	-- CloseCurrentPane
 	{ key = "w", mods = "CMD", action = wezterm.action.CloseCurrentPane({ confirm = true }) },
 	{ key = "t", mods = "CMD", action = wezterm.action.SpawnCommandInNewTab({ cwd = wezterm.home_dir }) },
 
-	{ key = "l", mods = "LEADER", action = wezterm.action.ShowLauncher },
+	-- { key = "l", mods = "CTRL", action = wezterm.action.ClearScrollback("ScrollbackAndViewport") },
+	-- { key = "l", mods = "LEADER", action = wezterm.action.ShowLauncher },
 	{ key = "s", mods = "LEADER", action = wezterm.action.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }) },
 	{ key = "t", mods = "LEADER", action = wezterm.action.ShowLauncherArgs({ flags = "FUZZY|TABS" }) },
 	{ key = "c", mods = "LEADER", action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }) },
