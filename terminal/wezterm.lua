@@ -6,12 +6,10 @@ if wezterm.target_triple:find("darwin") then
 	config.window_background_opacity = 0.95
 	config.macos_window_background_blur = 15
 	config.integrated_title_button_style = "MacOsNative"
-elseif wezterm.target_triple:find("windows") then
-	config.window_background_opacity = 0.95
-	config.win32_system_backdrop = "Mica"
 elseif wezterm.target_triple:find("linux") then
 	config.integrated_title_button_style = "Gnome"
 	config.integrated_title_buttons = { "Hide", "Close" }
+	config.enable_wayland = true
 end
 
 config.font = wezterm.font("MesloLGS Nerd Font")
