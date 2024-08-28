@@ -1,32 +1,40 @@
 local wezterm = require("wezterm")
 local config = {}
+local mod_key
 
 if wezterm.target_triple:find("darwin") then
+	mod_key = "CMD"
+	config.window_frame = {
+		font_size = 14,
+	}
 	config.integrated_title_buttons = {}
-	config.window_background_opacity = 0.95
 	config.macos_window_background_blur = 15
 	config.integrated_title_button_style = "MacOsNative"
+	config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+	config.font_size = 14.5
 elseif wezterm.target_triple:find("linux") then
+	mod_key = "CTRL"
+	config.window_frame = {
+		font_size = 11,
+	}
 	config.integrated_title_button_style = "Gnome"
-	config.integrated_title_buttons = { "Hide", "Close" }
+	config.window_decorations = "NONE"
 	config.enable_wayland = true
+	config.default_prog = { "zsh" }
+	config.font_size = 12
 end
 
 config.font = wezterm.font("MesloLGS Nerd Font")
-config.font_size = 14.5
 -- config.color_scheme = "Gruvbox Material (Gogh)" -- "Gruvbox dark, hard (base16)"
 config.color_scheme = "Gruvbox dark, hard (base16)"
 
-config.window_frame = {
-	font_size = 14,
-}
 config.window_padding = {
 	top = 10,
 	bottom = 10,
 	-- left = 0,
 	-- right = 0,
 }
-config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+config.window_background_opacity = 0.95
 -- config.window_close_confirmation = "NeverPrompt"
 
 config.enable_tab_bar = true
@@ -41,7 +49,6 @@ config.freetype_load_target = "Normal"
 
 -- Startup --
 config.default_cwd = wezterm.home_dir
--- config.default_prog = {'zsh', '-l'}
 
 -- Behaviour --
 config.check_for_updates = false
@@ -60,9 +67,9 @@ config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 
 config.keys = {
   -- stylua: ignore
-	-- splitting
-	{ mods = "LEADER", key = "-", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
-	{ mods = "LEADER", key = "|", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+  -- splitting
+  { mods = "LEADER", key = "-",       action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	{ mods = "LEADER", key = "=", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 	{ mods = "LEADER", key = "z", action = wezterm.action.TogglePaneZoomState },
 
 	-- rotate panes
@@ -82,8 +89,8 @@ config.keys = {
 	{ key = "l", mods = "META", action = wezterm.action.AdjustPaneSize({ "Right", 5 }) },
 
 	-- CloseCurrentPane
-	{ key = "w", mods = "CMD", action = wezterm.action.CloseCurrentPane({ confirm = true }) },
-	{ key = "t", mods = "CMD", action = wezterm.action.SpawnCommandInNewTab({ cwd = wezterm.home_dir }) },
+	{ key = "w", mods = mod_key, action = wezterm.action.CloseCurrentPane({ confirm = true }) },
+	{ key = "t", mods = mod_key, action = wezterm.action.SpawnCommandInNewTab({ cwd = wezterm.home_dir }) },
 
 	-- { key = "l", mods = "CTRL", action = wezterm.action.ClearScrollback("ScrollbackAndViewport") },
 	-- { key = "l", mods = "LEADER", action = wezterm.action.ShowLauncher },

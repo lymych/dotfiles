@@ -21,4 +21,6 @@ ZSH_CONFIG_PATH=`dirname $SCRIPT`
 
 config_files=('zshenv' 'zshrc' 'p10k.zsh')
 
+# todo gitconfig tmux wezterm and arch
+
 for i in $config_files; do create_link $i; done
