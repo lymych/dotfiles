@@ -1,0 +1,77 @@
+* {
+  padding: 0;
+  border-radius: 8px;
+  border: none;
+  min-height: 0;
+  margin: 1px;
+}
+
+#waybar {
+    background: transparent;
+    color: #e3e3ea;
+    /* background-color: #19191e; */
+    background-color: rgba(25,25,30,0.9) ;
+    font-family: JetBrainsMono;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.modules-left {
+  background-color: transparent;
+  margin-left: 10px;
+}
+.modules-right {
+  background-color: transparent;
+  margin-right: 10px;
+}
+
+.modules-center {
+  background-color: transparent;
+}
+
+#workspaces button {
+    color: #2e3440;
+    padding: 0 10px;
+}
+
+#workspaces button.active {
+    color: #f4dbd6;
+    border-bottom: 3px solid #5294e2;
+}
+
+#workspaces button.persistent {
+    color: #f4dbd6;
+}
+
+#workspaces button.hover {
+  background: transparent;
+}
+
+#bluetooth {
+  color: #f4dbd6;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+#backlight {
+  color: #f4dbd6;
+  margin-right: 15px;
+}
+
+#network {
+  color: #f4dbd6;
+  margin-right: 15px;
+}
+
+#clock {
+  color: #f4dbd6;
+}
+
+#pulseaudio {
+  color: #f4dbd6;
+  margin-right: 15px
+}
+
+#battery {
+  color: #f4dbd6;
+}
