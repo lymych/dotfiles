@@ -9,7 +9,7 @@ return {
       { "<leader>X", function() require("mini.bufremove").delete(0, true) end, desc = "Delete Buffer (Force)" },
       { "<leader>e", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end, desc = "Open mini.files (Directory of Current File)", },
       { "<leader>E", function() require("mini.files").open(vim.uv.cwd(), true) end, desc = "Open mini.files (cwd)", },
-      { "<leader>go", function() require("mini.diff").toggle_overlay(0) end, desc = "Toggle mini.diff overlay", },
+      -- { "<leader>go", function() require("mini.diff").toggle_overlay(0) end, desc = "Toggle mini.diff overlay", },
       { "f", "<cmd>lua MiniJump2d.start(MiniJump2d.builtin_opts.single_character)<CR>", desc = "Start 2d jumping" },
     },
     config = function()
@@ -106,20 +106,20 @@ return {
         },
       }
 
-      require("mini.diff").setup {
-        mappings = {
-          apply = "<leader>gh",
-          reset = "<leader>gr",
-        },
-        view = {
-          style = "sign",
-          signs = {
-            add = "▎",
-            change = "▎",
-            delete = "",
-          },
-        },
-      }
+      -- require("mini.diff").setup {
+      --   mappings = {
+      --     apply = "<leader>gh",
+      --     reset = "<leader>gr",
+      --   },
+      --   view = {
+      --     style = "sign",
+      --     signs = {
+      --       add = "▎",
+      --       change = "▎",
+      --       delete = "",
+      --     },
+      --   },
+      -- }
 
       require("mini.icons").setup()
       MiniIcons.mock_nvim_web_devicons()

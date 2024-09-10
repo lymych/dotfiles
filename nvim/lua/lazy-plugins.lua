@@ -16,7 +16,7 @@ require("lazy").setup({
   require "plugins/treesitter",
   require "plugins/telescope",
   require "plugins/test",
-  -- require "plugins/git",
+  require "plugins/git",
   require "plugins.extras.lang.helm",
   require "plugins.extras.lang.go",
 

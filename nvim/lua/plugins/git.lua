@@ -21,12 +21,13 @@ return {
         -- stylua: ignore start
         map("n", "]h", gs.next_hunk, "Next Hunk")
         map("n", "[h", gs.prev_hunk, "Prev Hunk")
-        map({ "n", "v" }, "<leader>gs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
-        map({ "n", "v" }, "<leader>gr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
-        map("n", "<leader>gu", gs.undo_stage_hunk, "Undo Stage Hunk")
-        map("n", "<leader>gp", gs.preview_hunk, "Preview Hunk")
-        map("n", "<leader>gb", gs.blame_line, "Blame Line")
-        map("n", "<leader>gd", gs.diffthis, "Diff This")
+        map({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
+        map({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
+        map("n", "<leader>hu", gs.undo_stage_hunk, "Undo Stage Hunk")
+        map('n', '<leader>hs', gs.stage_buffer)
+        map("n", "<leader>hp", gs.preview_hunk, "Preview Hunk")
+        map("n", "<leader>hb", gs.blame_line, "Blame Line")
+        map("n", "<leader>hd", gs.diffthis, "Diff This")
       end,
     },
   },
