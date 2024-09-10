@@ -36,7 +36,7 @@ return {
   --         }
   --       end,
   --     }
-  --     -- vim.cmd.colorscheme "tokyonight"
+  --     vim.cmd.colorscheme "tokyonight"
   --     -- You can configure highlights by doing something like:
   --     vim.cmd.hi "Comment gui=none"
   --   end,
@@ -49,7 +49,7 @@ return {
       vim.g.gruvbox_material_transparent_background = 1
       vim.g.gruvbox_material_background = "hard"
       vim.g.gruvbox_material_foreground = "mix"
-      vim.g.gruvbox_material_ui_contrast = "high" -- The contrast of line numbers, indent lines, etc.
+      vim.g.gruvbox_material_ui_contrast = "high"
       vim.g.gruvbox_material_cursor = "auto"
 
       vim.cmd.colorscheme "gruvbox-material"
