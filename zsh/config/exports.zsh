@@ -10,7 +10,7 @@ export LANG='en_US.UTF-8'
 export BAT_THEME="ansi"
 
 # Terraform
-export TERRAGRUNT_DOWNLOAD="${HOME}/sre/tmp/.terragrunt_cache"
+export TERRAGRUNT_DOWNLOAD="${HOME}/.terragrunt_cache"
 export TF_PLUGIN_CACHE_DIR="${HOME}/.terraform.d/plugin-cache"
 export TF_PLUGIN_CACHE_MAY_BREAK_DEPENDENCY_LOCK_FILE=true
 export TF_CLI_ARGS_apply=--parallelism=50

@@ -6,5 +6,6 @@
 /nvim/plugin/**
 /nvim/*lock.json
 
-# ignored tmux plugins
-/tmux/plugins/tmux*
+*.log
+
+.venv

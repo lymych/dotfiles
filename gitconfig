@@ -1,8 +1,11 @@
+[user]
+  name = lymych
+[includeif "gitdir:~/Projects/Work/**"]
+  path = ~/Projects/Work/.gitconfig
+[includeIf "gitdir:~/Projects/Personal/**"]
+  path = ~/Projects/Personal/.gitconfig
 [init]
   defaultBranch = main
-[user]
-  name = Vitalii Lymych
-  email = vitalii.lymych@raiffeisen.ua
 [difftool "nvimdiff"]
   cmd = nvim -d $LOCAL $REMOTE
   trustexitcode = true

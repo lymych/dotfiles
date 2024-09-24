@@ -16,4 +16,4 @@ alias ls="ls --color=auto"
 alias aec2="aws ec2 describe-instances --output text --query 'Reservations[*].Instances[*].[InstanceId, Tags[?Key==\`product\`].Value | [0], Tags[?Key==\`Name\`].Value | [0] ]' --no-cli-pager --output=table"
 
 # FZF
-alias list_repos="ls -d ~/sre/github/*/ | cut -d/ -f6 | fzf --bind='enter:execute($EDITOR ~/sre/github/{+})'"
+alias list_repos="ls -d ~/Projects/Work/github/*/ | cut -d/ -f6 | fzf --bind='enter:execute($EDITOR ~/sre/github/{+})'"
